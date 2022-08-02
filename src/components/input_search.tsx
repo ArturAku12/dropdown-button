@@ -61,7 +61,7 @@ const InputSearch = (props: any) => {
                     onClick={() => setDropState(!dropState)} onKeyDown={(event) =>keyPress(event)}>
                 <img height = {10} style={{ transform: 'rotate(180deg)' }} src = {arrowdown} alt="arrowdown"/>
             </button>
-            <div style = {{position: 'fixed', top: 0, left: 0, visibility: 'hidden'}}>
+            <div id="popupDiv">
             { dropState === false && entryField === ""
             ?
             null
