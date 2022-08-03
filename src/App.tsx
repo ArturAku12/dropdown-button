@@ -7,11 +7,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Dropdown</h1>
-      <div className="card">
-      </div>
-      <p className="read-the-docs">
-      </p>
       <Dropdown/>
     </div>
   )

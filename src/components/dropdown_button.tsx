@@ -34,8 +34,6 @@ const Button = (props: any) => {
 
     return (
         <div>
-            <h2>The chosen name is: {currentName}</h2>
-            {/* {dropState ? showNames() : null}<br/> */}
             <InputSearch list_of_names = { name } setCurrentName={setCurrentName} currentName = {currentName}/>
         </div>
     )
