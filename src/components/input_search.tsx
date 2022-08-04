@@ -58,20 +58,22 @@ const InputSearch = (props: any) => {
             case "Enter": 
                 if (event.target.type !== "button") {
                     setCurrentName(event.target.value);
-                    setEntryField("")
+                    //setEntryField("")
+                    console.log(event.target.value)
                     //setDropState(true);
                 }
                 break;
             case "ArrowUp":
+                console.log(allTheRefs)
                 allTheRefs[parseInt(event.target.id) - 1].focus()
                 break;
             case "ArrowDown":
                 if (event.target.id && event.target.id !== "input") {
+                console.log(allTheRefs)
                 allTheRefs[parseInt(event.target.id) + 1].focus()
                 } else {
                     allTheRefs["0"].focus()
                 }
-                console.log("I am here", dropState);
                 break;
             case "Escape":
                 //if (event.target.id == "input") {
