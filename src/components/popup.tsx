@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 import {createElement as $,useState,useLayoutEffect,useCallback,useMemo} from "react"
 import {findFirstParent} from "./vdom-util"

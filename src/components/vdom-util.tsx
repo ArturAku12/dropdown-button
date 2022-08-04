@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 const spreadAll = (...args) => Object.assign({},...args)
 
 export const deleted = ks => st => spreadAll(...Object.keys(st).filter(ck=>!ks[ck]).map(ck=>({[ck]:st[ck]})))

@@ -59,7 +59,6 @@ const InputSearch = (props: any) => {
                 if (event.target.type !== "button") {
                     setCurrentName(event.target.value);
                     setEntryField("")
-                    //setDropState(true);
                 }
                 break;
             case "ArrowUp":
@@ -74,77 +73,52 @@ const InputSearch = (props: any) => {
                 console.log("I am here", dropState);
                 break;
             case "Escape":
-                //if (event.target.id == "input") {
+                if (event.target.id !== "input") {
                 setDropState(true);
-                //}
+                }
                 break;
         }
 
     }
-    //console.log(entryField)
-    //console.log(entryField == "" || dropState)
     return(
-        <div className = "random" onKeyDown={(event) => keyPress(event)}  onBlur={(event) => {handleBlur(event)}}>
+        <div className = "random" onKeyDown={(event) => keyPress(event)} onFocus={(event) =>{console.log("FOCUS ACQUIRED")}} onBlur={(event) => {console.log('FOCUS LOST'); handleBlur(event)}}>
             {/* input field */}
             <div key="parent" style={{ border: "3px solid green" }}>
-            {/* <div className="input-box"> */}
             <input type="text"
             id = "input" 
             placeholder={currentName} 
-            value = {entryField} 
-            style = {{width: "70%",
-                      height: "30px",
-                    outline: "none",
-                    border: "none",
-                    resize: "none",
-                }}
-            onChange={(event) => {setEntryField(event.target.value); if (event.target.value !== "") {setDropState(false)} else {setDropState(true)}}} 
+            defaultValue="" 
+            onChange={(event) => setEntryField(event.target.value)} 
             onKeyDown={(event) => keyPress(event)}
-            //onFocus={(event) => {setDropState(false)}}
-            />
-            {/* </div> */}
+            onFocus={(event) => setDropState(false)}/>
             
             
             {/* arrow button */}
             <button type = "button" className="buttonEl"
                     style={{
                         transform: dropState ? "rotate(180deg)" : 'rotate(0deg)',
-                        width: "20%",
-                        height: "30px",
-                        backgroundColor: "transparent",
-                        outline: "none",
-                        border: "none",
-                        resize: "none",
                     }}
                     onClick={(event) => setDropState(!dropState)}
                     onKeyDown={(event) =>keyPress(event)}>
-                <img style={{ transform: 'rotate(180deg)', height: "10px", display: "block", textAlign: "center", marginLeft: "-5px" }} src = {arrowdown} alt="arrowdown"/>
+                <img height = {10} style={{ transform: 'rotate(180deg)' }} src = {arrowdown} alt="arrowdown"/>
             </button>
-            
             </div>
-
-                { dropState
+                { dropState  
                     ?
                     null
                     :
                     // dropdown menu with buttons
                     <div id="popupDiv" ref = {setElement} style = { pos } >
-                        <div style = {{border: "1px solid blue", height: "224px", width:"250px",}}>
-                            
-                            <div style = {{overflow:"auto", height: "224px"}}>
+                        <div   style = {{border: "1px solid blue"}}>
                             {checkList().map((searched_name: string, key: any) =>
                                 <div key = {key}>
                                     <button ref={ref => allTheRefs[key] = ref } 
-                                    id = {key}
-                                    style = {{width: "100%", borderRadius: "0px"}} 
-                                    value = {searched_name}
-                                    onMouseOver = {(event) => {event.target.style.background = "#149688"; event.target.style.borderColor = "none"}}
-                                    onMouseOut = {(event) => {event.target.style.background = "white"}}
-                                    onClick = {(event) => {setCurrentName(searched_name); setDropState(true); setEntryField("")}} 
+                                    id = {key} 
+                                    value = {searched_name} 
+                                    onClick = {(event) => {setCurrentName(searched_name);}} 
                                     onKeyDown={(event) => keyPress(event)}> {searched_name} </button>
                                 </div>
                             )}
-                            </div>
                         </div>
                     </div>
                 }
