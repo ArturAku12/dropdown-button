@@ -80,7 +80,7 @@ const InputSearch = (props: any) => {
 
     }
     return(
-        <div className = "random" onKeyDown={(event) => keyPress(event)} onFocus={(event) =>{console.log("FOCUS ACQUIRED")}} onBlur={(event) => {console.log('FOCUS LOST'); handleBlur(event)}}>
+        <div className = "random" onKeyDown={(event) => keyPress(event)}  onBlur={(event) => {handleBlur(event)}}>
             {/* input field */}
             <div key="parent" style={{ border: "3px solid green" }}>
             <input type="text"
