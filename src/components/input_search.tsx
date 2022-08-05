@@ -95,7 +95,8 @@ const InputSearch = (props: any) => {
             placeholder={currentName} 
             value = {entryField} 
             style = {{width: "70%",
-                      height: "30px",
+                      height: "100%",
+                      fontSize: "14px",
                     outline: "none",
                     border: "none",
                     resize: "none",
@@ -138,7 +139,7 @@ const InputSearch = (props: any) => {
                                 <div key = {key}>
                                     <button ref={ref => allTheRefs[key] = ref } 
                                     id = {key}
-                                    style = {{width: "100%", borderRadius: "0px"}} 
+                                    style = {{width: "100%", borderRadius: "0px", backgroundColor: "white"}} 
                                     value = {searched_name}
                                     onMouseOver = {(event) => {event.target.style.background = "#149688"; event.target.style.borderColor = "none"}}
                                     onMouseOut = {(event) => {event.target.style.background = "white"}}
