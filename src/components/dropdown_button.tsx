@@ -5,7 +5,7 @@ const Button = (props: any) => {
 
     const { name }  = props;
 
-    const[currentName, setCurrentName] = useState("")
+    const[currentOption, setCurrentOption] = useState("")
 
     
 
@@ -15,7 +15,7 @@ const Button = (props: any) => {
                 
                 {name.map((namer: any) =>
                     <div>
-                        <button onClick={() => setCurrentName(namer)}> {namer} </button>
+                        <button onClick={() => setCurrentOption(namer)}> {namer} </button>
                     </div>
                 )}
                 
@@ -23,18 +23,9 @@ const Button = (props: any) => {
         )
     }
 
-    // const Ignore = () => {
-    //     return (
-    //         <div>
-    //         <h2>The chosen name is: {currentName}</h2>
-    //         <button onClick={() => setDropState(!dropState)}>Toggle</button>
-    //         </div>
-    //     )
-    // }
-
     return (
         <div>
-            <InputSearch list_of_names = { name } setCurrentName={setCurrentName} currentName = {currentName}/>
+            <InputSearch list_of_options = { name } setCurrentOption={setCurrentOption} currentOption = {currentOption}/>
         </div>
     )
 
