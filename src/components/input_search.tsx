@@ -66,9 +66,12 @@ const InputSearch = (props: any) => {
                 if (event.target.id === "arrowbutton" || event.target.id === "input") {
                     setDropState(!dropState);
                     setCurrentOption(reference.current.value);
+                    if (event.target.id === "input") {
+                    }
                 } else {
                 setCurrentOption(reference.current.value)
                 setDropState(true)
+                setEntryField("");
                 }
                 break;
             case "ArrowUp": //Ignores if pressed at input or arrowbutton. Shifts up by one, unless at the top, resets to bottom.
@@ -181,7 +184,6 @@ const InputSearch = (props: any) => {
                                     style = {{width: "100%", borderRadius: "0px",}} 
                                     value = {searched_option}
                                     onMouseOver = {(event) => {event.target.style.background = "#149688"; event.target.style.borderColor = "none"}}
-
                                     onMouseOut = {(event) => {event.target.style.background = "white"}}
                                     onClick = {(event) => {setCurrentOption(searched_option); setDropState(true); setEntryField("")}} >
                                     {searched_option} </button>
